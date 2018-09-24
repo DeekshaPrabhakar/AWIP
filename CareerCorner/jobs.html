@@ -1,0 +1,185 @@
+<html>
+
+<head>
+    <style type="text/css">
+        .jobTitleCompany {
+            font-size: 24px;
+            padding: 0;
+            margin: 0 0 6px 0;
+            display: block;
+        }
+
+        .dateLocationEmail {
+            padding: 0;
+            margin: 0 0 6px 0;
+        }
+
+        .jobTitle {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .recruiterEmail a {
+            text-transform: lowercase;
+            color: #a662d1;
+            font-weight: bold;
+        }
+
+        .datePosted,
+        .location,
+        .recruiterEmail {
+            margin-right: 12px;
+        }
+
+        .postingLink {
+            text-transform: uppercase;
+            width: 8%;
+            text-align: right;
+        }
+
+        .postingLink a {
+            text-align: right;
+            text-decoration: none;
+            color: #a662d1;
+        }
+
+        .details {
+            width: 90%;
+        }
+
+        .details,
+        .postingLink {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .posting {
+            padding: 24px;
+            box-shadow: 0 0 10px #999;
+            border-radius: 5px;
+        }
+
+        .postingsList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 90%;
+        }
+
+        .postingsList li {
+            margin: 36px 0;
+
+        }
+
+        .jobTitleCompany .company {
+            font-weight: normal;
+        }
+
+        .postingLink a[href=""] {
+            display: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.18.4/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            eResume.init();
+        }
+        );
+
+        var eResume = {
+            myList: [],
+            init: function () {
+                var myList = [
+                    ["08/17/2018", "Product Manager", "Plaid", "San Francisco, CA", "bliu@plaid.com", "https://plaid.com/careers/#product-manager"],
+                    ["08/15/2018", "Growth Product Manager", "Crunchbase", "San Francisco, CA", "jessica@crunchbase.com", "https://jobs.lever.co/crunchbase/33de5d70-2bd7-448f-8b77-8f4ddd38d671"],
+                    ["08/08/2018", "Senior Product Manager", "Adroll", "San Francisco, CA", "albert.chen@adroll.com", "https://www.adrollgroup.com/careers/open-positions/san-francisco?job=1248900"],
+                    ["08/08/2018", "Product Manager", "Zeguro", "San Francisco, CA", "aaron@zeguro.com", "https://angel.co/zeguro/jobs/402859-product-manager"],
+                    ["08/04/2018", "Product Manager", "TrueVault", "San Francisco, CA", "jason@truevault.com", "https://angel.co/truevault/jobs/391988-product-manager"],
+                    ["07/28/2018", "Product Manager, Data & Analytics", "Kindred", "San Francisco, CA", "justine@kindred.ai", "https://jobs.lever.co/kindred/d3d2c831-d679-438d-b747-f9d5dbac3fd9"],
+                    ["07/20/2018", "Product Manager", "Zendrive", "San Francisco, CA", "jayharris@zendrive.com", "https://jobs.lever.co/zendrive"],
+                    ["07/18/2018", "Security Developer", "Salesforce", "San Francisco, CA", "bromanescu@salesforce.com", "https://salesforce.wd1.myworkdayjobs.com/External_Career_Site/job/California---San-Francisco/Software-Development-Engineer--ALL-LEVELS----Distributed-Systems-Security_JR14919"],
+                    ["07/18/2018", "Network Security Developer", "Salesforce", "San Francisco, CA", "bromanescu@salesforce.com", ""],
+                    ["07/18/2018", "Network Security", "Salesforce", "San Francisco, CA", "bromanescu@salesforce.com", ""],
+                    ["07/18/2018", "Product Manager and Product Marketing Manager", "Rockset", "San Mateo, CA", "liz@lizbronsonconsulting.com", "https://rockset.com/careers/"],
+                    ["07/18/2018", "Mid-Market Account Manager", "Zugata", "Palo Alto, CA", "liz@lizbronsonconsulting.com", "https://boards.greenhouse.io/zugata/jobs/1077383"],
+                    ["07/18/2018", "Developer Evangelist", "SignalFx", "San Mateo, CA", "liz@lizbronsonconsulting.com", "https://jobs.lever.co/signalfx/6ed72de8-b463-4797-b9de-4d3d7a517c88"],
+                    ["07/18/2018", "Senior Product Marketer", "Sentry", "San Francisco, CA", "liz@lizbronsonconsulting.com", "https://sentry.io/careers/853473/"],
+                    ["07/18/2018", "Principal Engineer and Account Manager", "Contiq", "San Jose, CA", "liz@lizbronsonconsulting.com", "https://contiq.com/"],
+                    ["07/18/2018", "Senior Account Executive", "Tempo Automation", "San Francisco, CA", "liz@lizbronsonconsulting.com", "https://jobs.lever.co/tempoautomation/141305a6-c5e0-4bc6-8267-16139213b298"],
+                    ["07/17/2018", "CEO / COO / CMO", "ShopO", "", "LeeL@ShopO.com", "https://shopo.com/employment"],
+                    ["07/14/2018", "Product Manager", "Aquabyte", "San Francisco, CA", "bryton@aquabyte.ai", "https://jobs.lever.co/aquabyte/baa387e5-c336-4f80-9183-63231f2a81b0"],
+                    ["07/14/2018", "Head of Product", "Good2Go", "", "fran.heller@good2go.global", "https://www.good2go.global/"],
+                    ["06/21/2018", "Principal Product Manager, Search", "Evernote", "San Francisco, CA", "lbronson-contractor@evernote.com", "https://evernote.com/careers/job/?id=583255?gh_jid=583255"],
+                    ["06/11/2018", "Product Manager", "DoorDash", "San Francisco, CA", "annie@advancingwomeninproduct.org", "https://boards.greenhouse.io/doordash/jobs/44844#.WaAJKHeGP-Y"],
+                    ["06/21/2018", "Lead Product Manager, Emerging Technologies", "Mozilla", "San Francisco, CA", "acordero@mozilla.com", "https://boards.greenhouse.io/mozilla/jobs/793623?gh_src=eki7t51#.Wge6qduZN0t"],
+                    ["06/21/2018", "Senior Product Manager, Presence & Commerce", "GoDaddy", "San Francisco, CA", "info@advancingwomeninproduct", "https://careers.godaddy.net/job/san-francisco/senior-product-manager-presence-and-commerce/18045/5072376"],
+                    ["06/21/2018", "Technical Product Manager", "Philanthropy University", "Oakland, CA", "jacob@philanthropyu.org", "https://angel.co/philanthropy-university/jobs/308447-technical-product-manager"],
+                    ["06/20/2018", "SPIFFE Product Manager", "Scytale", "", "", "https://blog.scytale.io/were-hiring-a-product-manager-for-spiffe-ee384514172a"],
+                    ["06/20/2018", "Senior Product Manager", "Singularity University", "", "", "https://singularityuniversity.applytojob.com/apply/eU1YHcaUSN"],
+                    ["06/30/2018", "Product Manager", "Augmedix", "", "", "https://www.augmedix.com/description/?id=b45fa351-8e13-46d8-b87a-37f3ddc270eb"],
+                    ["06/30/2018", "Senior Product Manager, Growth", "Segment", "", "", "https://segment.com/jobs/1169799-Senior-Product-Manager-Growth"],
+                    ["06/30/2018", "Senior Product Marketing Manager", "Pusher", "", "", "https://pusher.workable.com/jobs/710219"],
+                    ["06/30/2018", "Strategy and Analytics - Product", "Segment", "", "", "https://segment.com/jobs/947923-Strategy-and-Analytics-Product"],
+                    ["06/30/2018", "Product Marketing Manager, Partners", "Segment", "", "", "https://segment.com/jobs/1134717-Product-Marketing-Manager-Partners"],
+                    ["06/21/2018", "Product Manager", "Imbellus", "", "info@advancingwomeninproduct", ""],
+                    ["06/21/2018", "Product Manager - Mobile Platform", "SkyGiraffe/ServiceNow", "San Francisco, CA", "", ""],
+                    ["06/21/2018", "Head of Product", "DotLab", "", "careers@dotlab.com", ""],
+                    ["06/21/2018", "Associate Product Manager", "Rubrik", "Palo Alto, CA", "info@advancingwomeninproduct", ""],
+                    ["06/21/2018", "Product Manage", "Rubrik", "Palo Alto, CA", "info@advancingwomeninproduct", ""],
+                    ["05/21/2018", "Program Director", "City Innovate", "", "rupal@cityinnovate.org", "http://cityinnovate.org/careers/"],
+                    ["05/21/2018", "Sr. Product Manager", "Sift Science", "San Francisco, CA", "rxiao@siftscience.com", "https://grnh.se/brtq3k1"],
+                    ["05/21/2018", "Tech Lead - Software Engineer (Applications Team)", "Sift Science", "San Francisco, CA", "rxiao@siftscience.com", "https://grnh.se/f667264f1"],
+                    ["05/21/2018", "Senior Software Engineer (Applications Team)", "Sift Science", "San Francisco, CA", "rxiao@siftscience.com", "https://grnh.se/d4c9caa71"],
+                    ["05/21/2018", "Engineering Manager", "Sift Science", "San Francisco, CA", "rxiao@siftscience.com", "https://grnh.se/f5bd63ff1"],
+                    ["", "", "", "", "", ""],
+                ];
+
+                eResume.buildHtmlTable(myList);
+            },
+            buildHtmlTable: function (myList) {
+                //loops through the array and create html elements appends to table
+                for (var i = 0; i < myList.length; i++) {
+                    let el = myList[i];
+                    var row = eResume.buildRow(el);
+                    //document.getElementById("resumeBody").appendChild(row);
+                    $(table).find('tbody').append(row)
+                }
+                eResume.setUpTableSort();
+            },
+            buildRow: function (el) {
+                let date = el[0];
+                let position = el[1];
+                let company = el[2];
+                let location = el[3];
+                let recruiter_email = el[4];
+                let job_link = el[5];
+                return '<tr><td>' + date + '</td><td><a target="_blank" style="text-decoration:underline" href="' + job_link + '">' + position + '</a></td><td>' + company + '</td>' +
+                    '<td>' + location + '</td><td><a href="mailto:"' + recruiter_email + '>' + recruiter_email + '</a></td></tr>';
+            },
+            setUpTableSort: function () {
+                $("table").tablesorter({
+                    sortList: [[0, 0]],
+                    headers: { 3: { sorter: false } }
+                });
+            }
+        };
+
+    </script>
+</head>
+
+<body>
+    <table id="table" class="tablesorter ws_data_table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Position Title</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Recruiter Email</th>
+            </tr>
+        </thead>
+        <tbody id="resumeBody">
+        </tbody>
+    </table>
+</body>

@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <style>
+        .speaker {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #speakersDiv .photo {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        #speakersDiv .photo img {
+            width: 80px;
+            height: 80px;
+            margin-top: -45px;
+            border-radius: 40px;
+        }
+
+        #speakersDiv .name {
+            display: inline-block;
+            margin-top: -30px;
+            vertical-align: top;
+            font-family: sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #speakersDiv .name a {
+            text-transform: uppercase;
+            color: white;
+        }
+
+        #speakersDiv .name .jobTitle {
+            margin-top: 10px;
+            color: #bc7adb;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        .speakerBg {
+            background: url("s/speaker-bg-1.png");
+            color: white;
+        }
+
+       
+
+        .speaker .moderatedBy {
+            text-transform: uppercase;
+        }
+
+        .speaker .description {
+            width: 60%;
+        }
+
+        .speaker .title,
+        .speaker .moderatedBy,
+        .speaker .description {
+            padding-left: 30px;
+
+        }
+
+         .speaker .title {
+            text-transform: uppercase;
+            font-size: 38px;
+            padding-top: 92px;
+            padding-left: 60px;
+
+        }
+
+        .speaker .moderatedBy .bar {
+            background: white;
+            width: 60px;
+            height: 10px;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .sectionEnding {
+            background: #7e7af7;
+            background: linear-gradient(to right, #7e7af7, #fb75af);
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="speakersDiv">
+        <section class="speaker">
+            <div class="speakerBg">
+                <h2 class="title">Title of keynote speech</h2>
+                <label class="moderatedBy">
+                    Moderated by: Nitika Bansal / Stripe<span class="bar">&nbsp;</span></label>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+                <div class="sectionEnding">&nbsp;</div>
+            </div>
+            <div class="photo">
+                <a target="_blank" href="https://www.linkedin.com/in/wangnancy/">
+                    <img src="s/Nancy.jpg" />
+                </a>
+            </div>
+            <div class="name">
+                <a target="_blank" href="https://www.linkedin.com/in/wangnancy/">Nancy Wang</a>
+                <div class="jobTitle">
+                    Lead PM / Rubrik
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

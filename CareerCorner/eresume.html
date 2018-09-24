@@ -1,0 +1,380 @@
+<html>
+
+<head>
+    <style type="text/css">
+        .jobTitleCompany {
+            font-size: 20px;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        .dateLocationEmail {
+            padding: 0;
+            margin: 0 0 6px 0;
+        }
+
+        .jobTitle {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .recruiterEmail a {
+            text-transform: lowercase;
+            color: #a662d1;
+            font-weight: bold;
+        }
+
+        .datePosted,
+        .location,
+        .recruiterEmail {
+            margin-right: 12px;
+        }
+
+        .postingLink {
+            text-transform: uppercase;
+            width: 8%;
+            text-align: right;
+        }
+
+        .postingLink a {
+            text-align: right;
+            text-decoration: none;
+            color: #a662d1;
+        }
+
+        .details {
+            width: 90%;
+        }
+
+        .details,
+        .postingLink {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .posting {
+            padding: 24px;
+            box-shadow: 0 0 10px #999;
+            border-radius: 5px;
+        }
+
+        .postingsList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 90%;
+        }
+
+        .postingsList li {
+            margin: 36px 0;
+
+        }
+
+        .jobTitleCompany .company {
+            font-weight: normal;
+        }
+
+        .postingLink a[href=""] {
+            display: none;
+        }
+
+        table.tablesorter {
+            margin: 10px 0pt 15px;
+            font-size: 14px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid #eee;
+        }
+
+        table.tablesorter thead tr th,
+        table.tablesorter tfoot tr th {
+            background-color: #FFFFFF;
+            border: 1px solid #FFF;
+            font-size: 16px;
+            padding: 4px;
+            white-space: nowrap;
+        }
+
+        table.tablesorter thead tr th.yearsOfExp {
+            width: 100px;
+        }
+
+        table tr:nth-child(odd) td {
+            background-color: #e9e9e9 !important;
+        }
+
+        .tablesorter-header {
+            background-image: url(http: //static1.squarespace.com/static/54cf2b14e4b06d2d0d79b8bd/t/54d9774ce4b0ac9bd1cf15d0/1423537996257/bg.gif);
+                background-repeat: no-repeat;
+            background-position: center right;
+            cursor: pointer;
+        }
+
+        table.tablesorter tbody td {
+            color: #000000;
+            padding: 4px;
+            background-color: #FFF;
+            vertical-align: top;
+            white-space: nowrap;
+        }
+
+        table.tablesorter tbody td.blurb,
+        table.tablesorter th.blurb {
+            white-space: normal;
+            padding-left: 24px;
+        }
+
+        table.tablesorter tbody tr.odd td {
+            background-color: #F7BDBF;
+        }
+
+        .tablesorter-headerAsc {
+            background-image: url(http: //static1.squarespace.com/static/54cf2b14e4b06d2d0d79b8bd/t/54d9773ee4b0e9d26e53c280/1423537982050/asc.gif);
+        }
+
+        .tablesorter-headerDesc {
+            background-image: url(http: //static1.squarespace.com/static/54cf2b14e4b06d2d0d79b8bd/t/54d97750e4b0ac9bd1cf15ec/1423538000688/desc.gif);
+        }
+
+        .tablesorter td a {
+            color: blue;
+        }
+
+        .tablesorter a {
+            text-decoration: none;
+        }
+
+        #teamDiv ul, #ambassadorDiv ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #teamDiv .member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+
+        #teamDiv .member .photo {
+            float: left;
+            vertical-align: top;
+            width: 200px;
+            height: 240px;
+            margin-right: 16px;
+        }
+
+        #teamDiv .member {
+            display: inline-block;
+            width: 48%;
+            vertical-align: top;
+            margin-bottom: 25px;
+            margin-right: 16px;
+        }
+
+        #teamDiv .member .jobTitle {
+            font-size: 0.8em;
+            font-weight: normal;
+            text-transform: none;
+            margin: 0px;
+            line-height: 20px;
+            font-style: italic;
+        }
+
+        #teamDiv .member .name {
+            font-weight: 1em;
+            margin-bottom: 0;
+            margin-top: 15px;
+        }
+
+        #teamDiv .member .awipTitle {
+            margin: 0;
+            paddind: 0;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 0.7em;
+            color: #a662d1;
+        }
+
+        #teamDiv .member .name a, #ambassadorDiv .ambassador .name a {
+            text-decoration: underline;
+        }
+
+        #teamDiv .member p {
+            font-size: 0.9em;
+            line-height: 22px;
+        }
+
+        #ambassadorDiv .ambassador .name {
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        #ambassadorDiv .ambassador {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+            vertical-align: top;
+            margin: 16px 16px 24px 16px;
+        }
+
+        #ambassadorDiv .ambassador .photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+        }
+
+        #ambassadorDiv .ambassador p.jobTitle {
+            margin: 3px 0 0 0;
+            font-size: 0.7em;
+            text-transform: none;
+            font-weight: bold;
+            line-height: 18px;
+            color: #a662d1;
+            font-family: sans-serif;
+        }
+
+        #ambassadorDiv .ambassador p.expertise {
+            font-style: italic;
+            margin: 3px 0 0 0;
+            font-size: 0.8em;
+            line-height: 18px;
+        }
+
+        .eventlist-event .eventlist-column-thumbnail img {
+            width: 334px !important;
+            left: 0 !important;
+        }
+
+        #ambassadorTestDiv .ambassadorTest {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+            vertical-align: top;
+            margin: 16px 16px 24px 16px;
+        }
+
+        #ambassadorTestDiv .ambassadorTest .photo img {
+
+            width: 150px;
+            height: 150px;
+
+        }
+
+        #ambassadorTestDiv .ambassadorTest p.jobTitle {
+            margin: 3px 0 0 0;
+            font-size: 0.7em;
+            text-transform: none;
+            font-weight: bold;
+            line-height: 18px;
+            color: #a662d1;
+            font-family: sans-serif;
+        }
+
+        #ambassadorTestDiv .ambassadorTest p.expertise {
+            font-style: italic;
+            margin: 3px 0 0 0;
+            font-size: 0.8em;
+            line-height: 18px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.18.4/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            eResume.init();
+        }
+        );
+
+        var eResume = {
+            myList: [],
+            init: function () {
+                var myList = [
+                    ["Chidinma Kalu", "San Jose, CA", "4", "User experience professional", "https://www.linkedin.com/in/chidinma-d-kalu-47250225/", "chidinma-d-kalu"],
+                    ["Sadaf Hasan", "Santa Clara, CA", "4", "Engineering Management", "https://www.linkedin.com/in/sadafhasan/", "sadafhasan"],
+                    ["Violet Skinner", "West Palm Beach, Florida", "3", "Product Manager", "https://www.linkedin.com/in/violetskinner", "violetskinner"],
+                    ["Christina Lee", "San Ramon, CA", "5.5", "Product Marketer and Product Manager", "https://www.linkedin.com/in/christinaolee", "christinaolee"],
+                    ["Maadhavi Lakamsani", "Seattle, WA", "18", "Director Program Management", "https://www.linkedin.com/maadhavi", "maadhavi"],
+                    ["Alexandra Flores", "Seattle, WA", "1", "Program Manager", "https://www.linkedin.com/in/alexfloresgreer/", "alexfloresgreer"],
+                    ["Joy Ananyi", "Toronto, Canada", "2.5", "", "https://www.linkedin.com/in/joyananyi/", "joyananyi"],
+                    ["Krish Munot", "San Francisco, CA", "2", "Product Manager", "https://www.linkedin.com/in/krishmunot", "krishmunot"],
+                    ["Valerie Voloboy", "Moscow, Russia", "2", "Product Manager", "https://www.linkedin.com/in/valerie-voloboy-188aa5133/", "valerie-voloboy"],
+                    ["Vidhi Agrawal", "Seattle, WA", "0", "Entry Level High School Student", "https://www.linkedin.com/in/vidhi-agrawal-137043160", "vidhi-agrawal"],
+                    ["Vi Huang", "Mountain View, CA", "19", "Senior Manager, Product Management", "http://www.linkedin.com/in/vihuang", "vihuang"],
+                    ["Jyoty Subramanian", "San Francisco, CA", "4", "Recent MBA graduate", "https://www.linkedin.com/in/jyotysubramanian/", "jyotysubramanian"],
+                    ["Allison A. Hopkins", "Minneapolis, MN", "10", "Product Management Executive and Consultant", "https://www.linkedin.com/in/allison-hopkins/", "allison-hopkins"],
+                    ["Olga Ayvazyan", "San Francisco, CA", "5", "Product Manager", "https://www.linkedin.com/in/olgasayva", "olgasayva"],
+                    ["Swetha Salunke", "New York, NY", "8", "Senior Manager, Product Marketing", "https://www.linkedin.com/swethasalunke", "swethasalunke"],
+                    ["Prutha Kulkarni", "Seattle, WA", "8", "Product Manager", "https://www.linkedin.com/in/pruthakulkarni", "pruthakulkarni"],
+                    ["Yasha Swati Lanka", "Dallas, Texas", "5", "MBA Graduate", "https://www.linkedin.com/in/yasha-swati-lanka/", "yasha-swati-lanka"],
+                    ["Sanny Lin", "San Francisco, CA", "5", "Product Manager", "https://www.linkedin.com/in/sannylin", "sannylin"],
+                    ["Mikaela Reyes", "Bay Area", "1.5", "Product Manager", "https://www.linkedin.com/in/smikatoots", "smikatoot"],
+                    ["Ashley Yeung", "Bay Area", "5", "Senior Business Analyst", "https://www.linkedin.com/in/ashleyy31", "ashleyy31"],
+                    ["Roshni Uppala", "San Ramon, CA", "8", "Product Manager", "https://www.linkedin.com/in/roshni-uppala/", "roshni-uppala"],
+                    ["Mandeep Kaur", "San Jose, CA", "1", "Software Engineer", "https://www.linkedin.com/in/mandeepkaur14/", "mandeepkaur14"],
+                    ["Nadya Klim", "San Francisco, CA", "6", "Product Manager", "https://www.linkedin.com/in/nadya-klim/", "nadya-klim"],
+                    ["Erica Luong", "San Francisco, CA", "5", "Strategy Intern", "https://www.linkedin.com/in/erica-luong", "erica-luong"],
+                    ["Janna Yousef", "Middletown, CT", "1", "Student", "https://www.linkedin.com/in/janna-yousef/", "janna-yousef"],
+                    ["Froila Dsouza", "Sunnyvale, CA", "2.5", "Software Engineer Intern", "https://www.linkedin.com/in/froiladsouza/", "froiladsouza"],
+                    ["Saniya Shaikh", "San Francisco, CA", "3", "Student", "https://www.linkedin.com/in/shaikhsaniya/", "shaikhsaniya"],
+                    ["Shoshana Weiss", "Philadelphia, PA", "4", "Innovation Lead", "https://www.linkedin.com/in/shoshana-%E2%80%9Cshani%E2%80%9D-weiss-0491801a/", "shoshana-shani-weiss/"],
+                    ["Elle Phuong Le", "San Francisco, CA", "4", "Product Manager", "https://www.linkedin.com/in/elle-le/", "elle-le"],
+                    ["Andrea Gioia", "Denver, CO", "8", "Product Manager", "https://www.linkedin.com/in/agioia27", "agioia27"],
+                    ["Caroline Goodwin", "Boston, MA", "1", "Product Operations and Marketing", "https://www.linkedin.com/in/carolinefgoodwin/", "carolinefgoodwin"],
+                    ["Angela Wong", "San Francisco, CA", "8", "Product Manager", "https://www.linkedin.com/in/angelawingwong/", "angelawingwong"],
+                    ["Kaitlin Reid", "New York City, NY", "1", "Co-founder & Product Manager", "https://www.linkedin.com/in/kaitreid/", "kaitreid"],
+                    ["Jeethandran Suresh Kumar", "Monterey Park, CA", "2", "Project Manager", "https://www.linkedin.com/in/hire-jeethandran-suresh/", "jeethandran-suresh"]
+                ];
+
+                eResume.buildHtmlTable(myList);
+            },
+            buildHtmlTable: function (myList) {
+                //loops through the array and create html elements appends to table
+                for (var i = 0; i < myList.length; i++) {
+                    let el = myList[i];
+                    var row = eResume.buildRow(el);
+                    //document.getElementById("resumeBody").appendChild(row);
+                    $(table).find('tbody').append(row)
+                }
+                eResume.setUpTableSort();
+            },
+            buildRow: function (el) {
+                let name = el[0];
+                let location = el[1];
+                let experience = el[2];
+                let jobtitle = el[3];
+                let linkedInURL = el[4];
+                let linkedInUserName = el[5];
+                return '<tr><td>' + name + '</td><td>' + location + '</td><td>' + experience + '</td>' +
+                    '<td>' + jobtitle + '</td><td><a target="_blank" href="' + linkedInURL + '">' + linkedInUserName + '</a></td></tr>';
+            },
+            setUpTableSort: function () {
+                $("table").tablesorter({
+                    sortList: [[0, 0]],
+                    headers: { 3: { sorter: false } }
+                });
+            }
+        };
+
+    </script>
+</head>
+
+<body>
+    <table id="table" class="tablesorter ws_data_table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th class="yearsOfExp">Years of Exp.</th>
+                <th>Current Role</th>
+                <th>LinkedIn Profile</th>
+            </tr>
+        </thead>
+        <tbody id="resumeBody">
+        </tbody>
+    </table>
+</body>
+
+</html>
